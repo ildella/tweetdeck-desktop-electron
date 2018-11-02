@@ -7,10 +7,15 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({  
+    width: 1024, 
+    height: 768,
+    icon: __dirname + '/icon.png'
+  })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  // mainWindow.loadFile('index.html')
+  mainWindow.loadURL('https://tweetdeck.twitter.com')  
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
