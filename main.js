@@ -10,7 +10,11 @@ function createWindow () {
   mainWindow = new BrowserWindow({  
     width: 1024, 
     height: 768,
-    icon: __dirname + '/icon.png'
+    icon: __dirname + '/icon.png',
+    title: "Tweetdeck",
+    frame: true,
+    resizable: true,
+    transparent: true,
   })
 
   // and load the index.html of the app.
@@ -28,6 +32,10 @@ function createWindow () {
     mainWindow = null
   })
 }
+
+// from https://stackoverflow.com/questions/38283853/how-to-set-command-line-for-electron
+// app.commandLine.appendSwitch('enable-transparent-visuals');
+// app.commandLine.appendSwitch('disable-gpu');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -50,6 +58,7 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
