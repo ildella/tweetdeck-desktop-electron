@@ -1,12 +1,13 @@
 {
   "name": "tweetdek-desktop-electron",
   "version": "0.0.1",
-  "description": "",
+  "description": "Tweetdeck - Twitter client. Desktop app built with ElectronJS",
   "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
   "repository": "https://github.com/ildella/tweetdek-desktop-electron",
+  "author": { "name" : "Daniele Dellafiore"
+  , "email" : "daniele@pipelean.com"
+  },
+  "license": "CC0-1.0",
   "keywords": [
     "Twitter",
     "Tweetdeck",
@@ -14,9 +15,29 @@
     "Electron",
     "Javascript"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:snap": "build --linux snap"
+  },
   "devDependencies": {
-    "electron": "3.0.7"
+    "electron": "3.0.7",
+    "electron-builder": "20.31.2"
+  },
+  "postinstall": "electron-builder install-app-deps",
+  "build": {
+    "appId": "tweetdeck.electron",
+    "linux": {
+      "category": "Messaging",
+      "synopsis": "tweetdeck. Unofficial desktop app built on ElectronJS",
+      "target": [
+        "deb",
+        "freebsd",
+        "rpm",
+        "AppImage",
+        "snap"
+      ]
+    }
   }
 }
